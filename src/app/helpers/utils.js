@@ -20,5 +20,12 @@ const replaceImageWithDiv = (content) => {
     return content.replace(/<img[^>]*src=\"?([^\"]*)\"?([^>]*alt=\"?([^\"]*)\"?)?[^>]*>/g, imageInList);
 }
 
+const validateEmail = (mailId) => {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mailId)){
+        return (true)
+    }
+    return (false)
+}
 
-export {extractValueFromArrObj, replaceImageWithDiv}
+
+export {extractValueFromArrObj, replaceImageWithDiv, validateEmail}

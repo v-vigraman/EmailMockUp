@@ -2,6 +2,7 @@ import React from 'react'
 import '../../global.css'
 import UserAction from '../redux/UserRedux'
 import { connect } from 'react-redux'
+import {validateEmail} from '../helpers/utils'
 class CreateUser extends React.Component {
 
     constructor(props) {
@@ -10,7 +11,8 @@ class CreateUser extends React.Component {
             fName: '',
             lName: '',
             email: '',
-            profilePic: null
+            profilePic: null,
+            emailValidateError: false
         }
     }
 
@@ -34,7 +36,12 @@ class CreateUser extends React.Component {
         e.preventDefault();
         const {addUser} = this.props;
         const payload = {...this.state};
-        addUser(payload);
+        if(validateEmail(payload.email)) {
+            this.setState({emailValidateError: false})
+            addUser(payload);
+        } else {
+            this.setState({emailValidateError: true})
+        }
     }
 
     selectProfilePic = (e) => {
@@ -59,7 +66,7 @@ class CreateUser extends React.Component {
 
     render() {
         const { isAlreadyRegistered, onSubmitError } = this.props;
-        const {fName, lName, email, profilePic} = this.state;
+        const {fName, lName, email, profilePic, emailValidateError} = this.state;
         return (
             <div className='wrapper'>
                 <div className='form-wrapper'>
@@ -81,13 +88,14 @@ class CreateUser extends React.Component {
                         <span className="error">
                             {onSubmitError && isAlreadyRegistered ? "This Email I'd was already registered" : ""}
                             {onSubmitError && email === '' ? "*required" : ""}
+                            {emailValidateError ? "Enter Valid Mail I'D" : ""}
                         </span>
                     </div>
                     <div className="profile-pic">
                         <div id="profile" onClick={() => this.selectProfilePic()}>
                             <div className="dashes"></div>
                             {profilePic === null && !onSubmitError ?<label className="profile-label">Click upload profile picture</label>: null}
-                            {onSubmitError &&  profilePic === null ?<label className="profile-label-error">Profile pic is mandatory</label>: ""}
+                            {onSubmitError && profilePic === null ?<label className="profile-label-error">Profile pic is mandatory</label>: ""}
                         </div>
                     </div>
                     <div className="user-profile-pic-input">
