@@ -1,0 +1,309 @@
+body {
+  margin: 0px;
+  font-family: Lato;
+}
+
+/* Create user css Start*/
+
+.wrapper {
+  height: 97vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7f7f7;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  max-width: 80%;
+  min-width: 100px;
+  min-height: 400px;
+  padding: 20px 40px;
+  border-radius: 6px;
+  box-shadow: 0px 8px 36px #222;
+  background-color: #fefefe;
+}
+
+.form-wrapper > h2 {
+  display: flex;
+  justify-content: center;
+  font-family: "Segoe UI", "Ubuntu", "Roboto", "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 2em;
+  font-weight: lighter;
+  margin-top: 0.25em;
+  color: #222;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.info {
+  padding-bottom: 1em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+label {
+  margin-bottom: 0.5em;
+  color: #444;
+  font-weight: lighter;
+}
+
+input {
+  padding: 10px 10px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #d6d1d5;
+}
+
+input::placeholder {
+  font-size: 1.2em;
+  font-weight: lighter;
+  color: #bbb;
+}
+
+.create-btn {
+  min-width: 100%;
+  cursor: pointer;
+  margin-right: 0.25em;
+  margin-top: 0.5em;
+  padding: 	0.938em;
+  border: none;
+  border-radius: 4px;
+  background-color: rgb(0, 137, 255);
+  color: #fefefe;
+}
+.create-btn:hover {
+  background-color: #4A4E69;
+  color: #fefefe;
+}
+
+.error {
+  color:#db2269;
+  font-size: 0.5em;
+  display: relative;
+}
+
+.firstName,
+.lastName,
+.email {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  min-height: 75px;
+}
+
+.firstName,
+.lastName {
+  width: 100%;
+}
+
+.email {
+  width: 100%;
+}
+
+.submit {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.profile-pic {
+  display: contents;
+}
+
+
+#profile {
+  border-radius: 100%;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  position: relative;
+  cursor: pointer;
+  background: #f4f4f4;
+  display: table;
+  background-size: cover;
+  background-position: center center;
+  box-shadow: 0 5px 8px rgba(black, 0.35);
+  margin-bottom: 20px;
+  &.dragging {
+    background-image: none!important;
+    .dashes {
+      animation-duration: 10s;
+      animation-name: spin;
+      animation-iteration-count:infinite;
+      animation-timing-function: linear;
+      opacity: 1!important;
+    }
+    label {
+      opacity: 0.5!important;
+    }
+  }
+}
+.hasImage > .dashes, .hasImage > .profile-label {
+    opacity: 0 !important;
+    pointer-events: none;
+    user-select: none;
+}
+
+.profile-label-error {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  padding: 0 30px;
+  color: red;
+  opacity: 1;
+}
+
+.dashes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 100%;
+  width: 97%;
+  height: 97%;
+  border: 4px dashed #ddd;
+  opacity: 1;
+}
+
+.profile-label {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  padding: 0 30px;
+  color: grey;
+  opacity: 1;
+}
+
+.user-profile-pic-input {
+  display: none;
+}
+
+/* Create user css end */
+
+
+/* Custom Component css start */
+
+.custom-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Custom Component css end */
+
+
+/* Mail Page css start */
+
+.mail-body-wrapper {
+  display: flex;
+}
+
+.mail-list-body-wrapper {
+  width: 80%;
+  height: calc(100vh - 100px);
+}
+
+.mail-list-body-header {
+  height: 10%;
+  background-color: #f1f1f1;
+}
+
+.mail-list-action {
+  width: 10%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  color: #b3a9a9;
+}
+
+.mail-action-check {
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+}
+
+.mail-list-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 12px 0px;
+  border-bottom: 1px solid #e6dede;
+}
+
+.mail-list-checkbox {
+  width: 19px;
+  height: 20px;
+  margin-left: 10px;
+}
+
+.mail-list-check, .mail-list-eye, .mail-list-item-subject, .mail-list-item-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mail-list-item-subject, .mail-list-item-content {
+  justify-content: flex-start;
+}
+
+.mail-list-item-subject {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.mail-list-item-content {
+  color: #585252;
+}
+
+.unread-messages {
+  width: 15px;
+  text-align: center;
+  background: #e2e2e2;
+  border-radius: 30px;
+}
+
+/* Mail Page css end */
+
+
+
+.no-suggestions {
+  color: #999;
+  padding: 0.5rem;
+}
+
+.suggestions {
+  border: 1px solid #999;
+  border-top-width: 0;
+  list-style: none;
+  margin-top: 0;
+  max-height: 143px;
+  overflow-y: auto;
+  padding-left: 0;
+  width: calc(300px + 1rem);
+}
+
+.suggestions li {
+  padding: 0.5rem;
+}
+
+.suggestion-active,
+.suggestions li:hover {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.suggestions li:not(:last-of-type) {
+  border-bottom: 1px solid #999;
+}

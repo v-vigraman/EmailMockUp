@@ -1,0 +1,23 @@
+.mail-list-title > ul {
+    display: flex;
+    list-style-type: none;
+    /* justify-content: space-around; */
+    padding-inline-start: 0px;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    background: #ffffff;
+    border-bottom: 1px solid #ece8e8;
+}
+
+.mail-list-title > ul > li {
+    display: grid;
+    grid-template-columns: 2rem 4rem;
+    width: 20%;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 0px;
+}
+
+.mail-list-title > ul > li.active {
+    border-bottom: 2px solid blue;
+}
