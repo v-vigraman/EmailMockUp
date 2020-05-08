@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { MAIL_HEADER } from '../../helpers/constants';
 import MailMenuAction from '../../redux/MailMenuRedux'
 import ReactHtmlParser from "react-html-parser";
-
+import {replaceImageWithDiv} from '../../helpers/utils'
 class MailList extends React.Component {
 
     openMailBox = (item) => {
@@ -39,7 +39,7 @@ class MailList extends React.Component {
                                 {item.olderMessages.length > 0 ? <div className="unread-messages">{item.olderMessages.length}</div>: ''}
                             </div>
                             <div className="mail-list-item-content" style={{width: "75%"}}>
-                                {item.subject} - {ReactHtmlParser(item.message)}
+                                {item.subject} - {ReactHtmlParser(replaceImageWithDiv(item.message))}
                             </div>
                         </div>: null
                     )

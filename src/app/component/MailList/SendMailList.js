@@ -1,6 +1,8 @@
 import React from "react"
 import {connect} from "react-redux"
 import MailMenuAction from "../../redux/MailMenuRedux"
+import ReactHtmlParser from "react-html-parser";
+import { replaceImageWithDiv } from "../../helpers/utils";
 class SendMailList extends React.Component {
 
     openMailBox = (item) => {
@@ -10,7 +12,7 @@ class SendMailList extends React.Component {
     render() {
         const {mailList, currentUser} = this.props;
         const mailData = mailList.filter(mail => {
-            if(mail.from === currentUser.email || (mail.to === currentUser.email && mail.isThread)) {
+            if(mail.from === currentUser.email || (mail.to === currentUser.email && mail.isThread && mail.sendBySender)) {
                 return true
             } else {
                 return false;
@@ -30,7 +32,7 @@ class SendMailList extends React.Component {
                         {item.olderMessages.length > 0 ? <div className="unread-messages">{item.olderMessages.length}</div>: ''}
                     </div>
                     <div className="mail-list-item-content" style={{width: "75%"}}>
-                        {item.subject} - {item.message}
+                        {item.subject} - {ReactHtmlParser(replaceImageWithDiv(item.message))}
                     </div>
                 </div>       
             )

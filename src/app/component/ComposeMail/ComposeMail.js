@@ -50,7 +50,7 @@ class ComposeMail extends React.Component {
     sendMail = () => {
         const {currentUser, composeNewMail, sendMail, composeMailData} = this.props;
         const {subject} = this.state;
-        if(composeNewMail.to) {
+        if(composeNewMail.to || composeMailData) {
             const message = document.getElementById("compose-content");
             const data = {
                 from: currentUser.email,

@@ -25,6 +25,7 @@
 .sidebar-menu > ul > li {
     padding: 10px 45px;
     font-size: 14px;
+    color: #908e8e
 }
 
 .sidebar-menu > ul > li:hover {
@@ -33,4 +34,5 @@
 
 .sidebar-menu > ul > li.active {
     background: #f6f7f9;
+    color: #0070ff;
 }

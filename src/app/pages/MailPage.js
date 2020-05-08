@@ -18,8 +18,8 @@ class MailPage extends React.Component {
                     <div className="mail-list-body-wrapper">
                         <div className="mail-list-body-header">
                             <div className="mail-list-action">
-                                <div className="mail-action-check">
-                                    <i className="fa fa-square-o" aria-hidden="true"></i>
+                                <div className="mail-action-check-top">
+                                    <input type="checkbox" className="mail-list-checkbox"/>
                                     <i className="fa fa-chevron-down"></i>
                                 </div>
                                 <i className="fa fa-repeat"></i>
